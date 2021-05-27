@@ -47,7 +47,7 @@ class STAR(nn.Module):
             path_model = cfg.path_neutral_star
 
         if not os.path.exists(path_model):
-            raise RuntimeError('Path does not exist %s' % (path_model))
+            raise RuntimeError('Path does not exist %s; use star.config.set_model_path to set path' % (path_model))
         import numpy as np
 
         star_model = np.load(path_model,allow_pickle=True)
