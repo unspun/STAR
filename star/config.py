@@ -20,9 +20,9 @@
 # Ahmed A. A. Osman
 
 import os
-path_male_star = ''
-path_female_star = ''
-path_neutral_star = ''
+path_male_star = '/Users/unspun/Dev/unspun/lib_ref/STAR/star_1_1/male/model.npz'
+path_female_star = '/Users/unspun/Dev/unspun/lib_ref/STAR/star_1_1/female/model.npz'
+path_neutral_star = '/Users/unspun/Dev/unspun/lib_ref/STAR/star_1_1/neutral/model.npz'
 
 data_type = 'float32'
 
@@ -30,7 +30,7 @@ if data_type not in ['float16','float32','float64']:
     raise RuntimeError('Invalid data type %s'%(data_type))
 
 class meta(object):
-    pass 
+    pass
 
 cfg = meta()
 cfg.data_type = data_type
@@ -38,3 +38,8 @@ cfg.data_type = data_type
 cfg.path_male_star    = path_male_star
 cfg.path_female_star  = path_female_star
 cfg.path_neutral_star = path_neutral_star
+
+def set_model_path(top_path):
+    cfg.path_male_star    = f"{top_path}/male/model.npz"
+    cfg.path_female_star  = f"{top_path}/female/model.npz"
+    cfg.path_neutral_star = f"{top_path}/neutral/model.npz"

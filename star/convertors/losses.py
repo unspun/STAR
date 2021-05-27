@@ -70,7 +70,7 @@ def convert_smpl_2_star(smpl,MAX_ITER_EDGES,MAX_ITER_VERTS,NUM_BETAS,GENDER):
     :param smpl:
     :return:
     '''
-    smpl = torch.cuda.FloatTensor(smpl)
+    smpl = torch.FloatTensor(smpl)
     batch_size = smpl.shape[0]
     if batch_size > 32:
         import warnings
@@ -78,13 +78,13 @@ def convert_smpl_2_star(smpl,MAX_ITER_EDGES,MAX_ITER_VERTS,NUM_BETAS,GENDER):
             'The Default optimization parameters (MAX_ITER_EDGES,MAX_ITER_VERTS) were tested on batch size 32 or smaller batches')
 
     star = STAR(gender=GENDER)
-    global_pose = torch.cuda.FloatTensor(np.zeros((batch_size, 3)))
+    global_pose = torch.FloatTensor(np.zeros((batch_size, 3)))
     global_pose = Variable(global_pose, requires_grad=True)
-    joints_pose = torch.cuda.FloatTensor(np.zeros((batch_size, 72 - 3)))
+    joints_pose = torch.FloatTensor(np.zeros((batch_size, 72 - 3)))
     joints_pose = Variable(joints_pose, requires_grad=True)
-    betas = torch.cuda.FloatTensor(np.zeros((batch_size, NUM_BETAS)))
+    betas = torch.FloatTensor(np.zeros((batch_size, NUM_BETAS)))
     betas = Variable(betas, requires_grad=True)
-    trans = torch.cuda.FloatTensor(np.zeros((batch_size, 3)))
+    trans = torch.FloatTensor(np.zeros((batch_size, 3)))
     trans = Variable(trans, requires_grad=True)
     learning_rate = 1e-1
     optimizer = torch.optim.LBFGS([global_pose], lr=learning_rate)

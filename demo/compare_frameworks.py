@@ -51,11 +51,11 @@ import torch
 import numpy as np
 from torch.autograd import Variable
 batch_size=1
-poses = torch.cuda.FloatTensor(np_pose)
+poses = torch.FloatTensor(np_pose)
 poses = Variable(poses,requires_grad=True)
-betas = torch.cuda.FloatTensor(np_betas)
+betas = torch.FloatTensor(np_betas)
 betas = Variable(betas,requires_grad=True)
-trans = torch.cuda.FloatTensor(np_trans)
+trans = torch.FloatTensor(np_trans)
 trans = Variable(trans,requires_grad=True)
 d = star(poses, betas,trans)
 
