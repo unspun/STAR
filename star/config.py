@@ -43,3 +43,5 @@ def set_model_path(top_path):
     cfg.path_male_star    = f"{top_path}/male/model.npz"
     cfg.path_female_star  = f"{top_path}/female/model.npz"
     cfg.path_neutral_star = f"{top_path}/neutral/model.npz"
+
+set_model_path(os.path.join(os.path.dirname(__file__), '..', 'star_1_1'))
